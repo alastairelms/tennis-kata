@@ -35,7 +35,7 @@ module.exports = class TennisGame {
             return (`${this.playerOne}: Adv ${this.playerTwo}: ${playerTwoPresentedScore}`)
         } else if (this.checkAdv(this.playerTwoScore, this.playerOneScore)) {
             return (`${this.playerOne}: ${playerOnePresentedScore} ${this.playerTwo}: Adv`)
-        } else if (this.isDeuce(this.playerOneScore, this.playerTwoScore)) {
+        } else if (this.isDeuce()) {
             return " * DEUCE * "
         } else {
             let score = `${this.playerOne}: ${playerOnePresentedScore} ${this.playerTwo}: ${playerTwoPresentedScore}`
@@ -49,8 +49,8 @@ module.exports = class TennisGame {
         return (score - otherScore >= 2 && score > 3)
     }
 
-    isDeuce(score, otherScore) {
-        return (score === otherScore && score >= 3)
+    isDeuce() {
+        return (this.playerOneScore === this.playerTwoScore && this.playerOneScore >= 3)
     }
 
     checkAdv(score, otherScore) {

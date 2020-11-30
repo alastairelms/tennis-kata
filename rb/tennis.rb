@@ -8,6 +8,7 @@ class TennisGame
     end
 
     def score
+        return "DEUCE" if deuce?
         "#{@player_one_name}: #{translate_score(@player_one_score)} #{@player_two_name}: #{translate_score(@player_two_score)}"
     end
 
@@ -24,5 +25,11 @@ class TennisGame
     def translate_score(score)
         return "love" if score == 0
         return "15" if score == 1
+        return "30" if score == 2
+        return "40" if score == 3
+    end
+
+    def deuce?
+        @player_one_score == @player_two_score && @player_one_score >= 3
     end
 end
