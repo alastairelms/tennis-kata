@@ -5,7 +5,7 @@ const points = {
     3 : "40"
 }
 
-class TennisGame {
+module.exports = class TennisGame {
     constructor(playerOne, playerTwo){
         this.playerOne = playerOne
         this.playerTwo = playerTwo
@@ -19,24 +19,27 @@ class TennisGame {
     playerTwoScores() {
         this.playerTwoScore++
     }
+    // TODO: seperate business logic and from presentation
+    //       checkScore()  
+    //       updateDisplay()
 
     updateDisplay() {
         const playerOnePresentedScore = this.presentPlayerScore(this.playerOneScore)
         const playerTwoPresentedScore = this.presentPlayerScore(this.playerTwoScore)
 
         if (this.playerHaswon(this.playerOneScore, this.playerTwoScore)) {
-            console.log(`${this.playerOne} has won!`)
+            return (`${this.playerOne} has won!`)
         } else if (this.playerHaswon(this.playerTwoScore, this.playerOneScore)) {
-            console.log(`${this.playerTwo} has won!`)
+            return (`${this.playerTwo} has won!`)
         } else if (this.checkAdv(this.playerOneScore, this.playerTwoScore)) {
-            console.log(`${this.playerOne}: Adv ${this.playerTwo}: ${playerTwoPresentedScore}`)
+            return (`${this.playerOne}: Adv ${this.playerTwo}: ${playerTwoPresentedScore}`)
         } else if (this.checkAdv(this.playerTwoScore, this.playerOneScore)) {
-            console.log(`${this.playerOne}: ${playerOnePresentedScore} ${this.playerTwo}: Adv`)
+            return (`${this.playerOne}: ${playerOnePresentedScore} ${this.playerTwo}: Adv`)
         } else if (this.isDeuce(this.playerOneScore, this.playerTwoScore)) {
-                console.log(" * DEUCE * ")
+            return " * DEUCE * "
         } else {
             let score = `${this.playerOne}: ${playerOnePresentedScore} ${this.playerTwo}: ${playerTwoPresentedScore}`
-            console.log(score)
+            return score
         }
         
     }
@@ -61,41 +64,9 @@ class TennisGame {
 
 }
 
-const gameOne = new TennisGame("Sam", "Alastair")
-gameOne.updateDisplay()
-gameOne.playerOneScores()
-gameOne.updateDisplay()
-gameOne.playerOneScores()
-gameOne.updateDisplay()
-gameOne.playerOneScores()
-gameOne.updateDisplay()
-gameOne.playerTwoScores()
-gameOne.updateDisplay()
-gameOne.playerTwoScores()
-gameOne.updateDisplay()
-gameOne.playerTwoScores()
-gameOne.updateDisplay()
-gameOne.playerOneScores()
-gameOne.updateDisplay()
-gameOne.playerTwoScores()
-gameOne.updateDisplay()
-gameOne.playerTwoScores()
-gameOne.updateDisplay()
-gameOne.playerOneScores()
-gameOne.updateDisplay()
-gameOne.playerTwoScores()
-gameOne.updateDisplay()
-gameOne.playerOneScores()
-gameOne.updateDisplay()
-gameOne.playerTwoScores()
-gameOne.updateDisplay()
-gameOne.playerOneScores()
-gameOne.updateDisplay()
-gameOne.playerOneScores()
-gameOne.updateDisplay()
-gameOne.playerTwoScores()
-gameOne.updateDisplay()
-gameOne.playerTwoScores()
-gameOne.updateDisplay()
-gameOne.playerTwoScores()
-gameOne.updateDisplay()
+getMiddle = (str) => {
+    let strLength = str.length
+
+
+    console.log(strLength)
+}
