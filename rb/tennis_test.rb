@@ -47,7 +47,7 @@ RSpec.describe(TennisGame) do
             expect(game.score).to eq "Sam: 30 Alastair: 30" 
         end
 
-        context 'and player one scores ' do
+        context 'and player one scores' do
             it 'returns "Sam: 40 Alastair: 30"' do
                 game.player_one_scores
                 expect(game.score).to eq "Sam: 40 Alastair: 30"
@@ -62,6 +62,18 @@ RSpec.describe(TennisGame) do
 
         it 'returns "DEUCE"' do
             expect(game.score).to eq "DEUCE"
+        end
+        context 'and player one scores' do
+            it 'returns "Sam: Adv Alastair: 40"' do
+                game.player_one_scores
+                expect(game.score).to eq "Sam: Adv Alastair: 40"
+            end
+        end
+        context 'and player two scores' do
+            it 'returns "Sam: 40 Alastair: Adv"' do
+                game.player_two_scores
+                expect(game.score).to eq "Sam: 40 Alastair: Adv"
+            end
         end
     end
 end
