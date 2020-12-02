@@ -75,5 +75,37 @@ RSpec.describe(TennisGame) do
                 expect(game.score).to eq "Sam: 40 Alastair: Adv"
             end
         end
+        context 'and player one scores twice' do
+            it 'returns "Sam has won!"' do
+                game.player_one_scores
+                game.player_one_scores
+                expect(game.score).to eq "Sam has won!"
+            end
+        end
+        context 'and player two scores twice' do
+            it 'returns "Alastair has won!"' do
+                game.player_two_scores
+                game.player_two_scores
+                expect(game.score).to eq "Alastair has won!"
+            end
+        end
+    end
+    context 'when player one has 4 points' do
+        before do
+            setup_score(4, 0)
+        end
+
+        it 'returns "Sam has won!"' do
+            expect(game.score).to eq "Sam has won!"
+        end
+    end
+    context 'when player two has 4 points' do
+        before do
+            setup_score(0, 4)
+        end
+
+        it 'returns "Alastair has won!"' do
+            expect(game.score).to eq "Alastair has won!"
+        end
     end
 end
